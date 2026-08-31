@@ -86,7 +86,6 @@ const renderPage = () => {
         <section class="content-section intro-section" id="about">
           <p class="eyebrow">Academic homepage</p>
           <h2 class="intro-title">Intelligent, safe, and sustainable mobility.</h2>
-          <p class="about-lead">${escapeHtml(profile.headline)}</p>
           <p>${escapeHtml(profile.about)}</p>
         </section>
 
@@ -107,9 +106,10 @@ const renderPage = () => {
           <div class="update-list">
             ${siteContent.latestUpdates
               .map(
-                (update) => `<article>
+                (update) => `<article${update.featured ? ' class="update-featured"' : ""}>
               <time>${escapeHtml(update.date)}</time>
               <div>
+                ${update.kicker ? `<span class="update-kicker">${escapeHtml(update.kicker)}</span>` : ""}
                 <h3><a href="${escapeHtml(update.url)}" target="_blank" rel="noreferrer">${escapeHtml(update.title)}</a></h3>
                 <p>${escapeHtml(update.detail)}</p>
               </div>
@@ -160,26 +160,16 @@ const renderPage = () => {
           <div class="footprint-block">
             <div class="footprint-heading">
               <h3>Academic Footprint</h3>
-              <p>A schematic record of institutions, conferences, and academic exchanges.</p>
             </div>
             <div class="map-stage" aria-label="Map of academic footprint locations">
               <img src="/world-map.jpg" alt="Blank world map">
               ${siteContent.footprints
                 .map(
-                  (point, index) =>
-                    `<span class="map-point" title="${escapeHtml(point.place)} — ${escapeHtml(point.detail)}" aria-label="${index + 1}. ${escapeHtml(point.place)}: ${escapeHtml(point.detail)}" style="--x: ${point.x}%; --y: ${point.y}%">${index + 1}</span>`,
+                  (point) =>
+                    `<span class="map-point" tabindex="0" role="img" title="${escapeHtml(point.place)} — ${escapeHtml(point.detail)}" aria-label="${escapeHtml(point.place)}: ${escapeHtml(point.detail)}" style="--x: ${point.x}%; --y: ${point.y}%"><span class="map-point-dot" aria-hidden="true"></span><span class="map-point-label" aria-hidden="true">${escapeHtml(point.label)}</span></span>`,
                 )
                 .join("\n")}
             </div>
-            <ol class="map-legend">
-              ${siteContent.footprints
-                .map(
-                  (point) =>
-                    `<li><strong>${escapeHtml(point.place)}</strong><span>${escapeHtml(point.detail)}</span></li>`,
-                )
-                .join("\n")}
-            </ol>
-            <p class="map-source">Base map: <a href="https://commons.wikimedia.org/wiki/File:BlankMap-World.svg" target="_blank" rel="noreferrer">Wikimedia Commons</a> · Public domain</p>
           </div>
         </section>
 

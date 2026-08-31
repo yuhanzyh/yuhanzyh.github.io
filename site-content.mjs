@@ -2,8 +2,6 @@ export const siteContent = {
   profile: {
     name: "Yuhan Zhang",
     affiliation: "Southeast University",
-    headline:
-      "I develop intelligent methods for safer automated driving and more sustainable urban mobility.",
     about:
       "My research connects large language models, traffic simulation, driving behavior, and data-driven optimization. I am particularly interested in building transportation systems that are safer, more efficient, and easier to test and reproduce.",
   },
@@ -26,6 +24,14 @@ export const siteContent = {
   ],
   latestUpdates: [
     {
+      date: "Thu 17 Sep",
+      title: "IEEE ITSC 2026",
+      detail: "Naples, Italy · See you there.",
+      url: "https://ieee-itsc.org/2026/",
+      featured: true,
+      kicker: "Next stop",
+    },
+    {
       date: "Jul 08-10, 2026",
       title: "15th Asia-Pacific Conference on Transportation and the Environment (APTE)",
       detail: "Jeju Island, South Korea",
@@ -46,9 +52,14 @@ export const siteContent = {
   ],
   socialProfiles: [
     { name: "GitHub", url: "https://github.com/yuhanzyh" },
-    { name: "Google Scholar", url: null },
-    { name: "ResearchGate", url: null },
-    { name: "LinkedIn", url: null },
+    {
+      name: "Google Scholar",
+      url: "https://scholar.google.com/citations?hl=zh-CN&user=4AhRQrUAAAAJ",
+    },
+    {
+      name: "ResearchGate",
+      url: "https://www.researchgate.net/profile/Yuhan-Zhang-61?ev=hdr_xprf",
+    },
   ],
   publications: [
     {
@@ -182,17 +193,17 @@ export const siteContent = {
     },
   ],
   footprints: [
-    { place: "Chengdu", detail: "Southwest Jiaotong University", x: 68.4, y: 41.8 },
-    { place: "Nanjing", detail: "Southeast University", x: 72.8, y: 39.4 },
-    { place: "Gothenburg", detail: "Chalmers University of Technology", x: 52.1, y: 23.2 },
-    { place: "Washington, D.C.", detail: "TRB Annual Meeting", x: 25.4, y: 35.5 },
-    { place: "Jeju", detail: "APTE 2026", x: 75.8, y: 38.4 },
-    { place: "Tianjin", detail: "Academic exchange", x: 72.8, y: 35.2 },
-    { place: "Beijing", detail: "Academic exchange", x: 72.2, y: 33.8 },
-    { place: "Akita", detail: "Academic exchange", x: 78.3, y: 34.4 },
-    { place: "Shanghai", detail: "Academic exchange", x: 74.4, y: 40.2 },
-    { place: "Changsha", detail: "Academic exchange", x: 71.0, y: 43.3 },
-    { place: "Wuhan", detail: "World Transport Convention", x: 71.3, y: 41.7 },
+    { place: "Chengdu", label: "SWJTU", detail: "Southwest Jiaotong University", x: 68.4, y: 41.8 },
+    { place: "Nanjing", label: "SEU", detail: "Southeast University", x: 72.8, y: 39.4 },
+    { place: "Gothenburg", label: "CTH", detail: "Chalmers University of Technology", x: 52.1, y: 23.2 },
+    { place: "Washington, D.C.", label: "TRB", detail: "Transportation Research Board Annual Meeting", x: 25.4, y: 35.5 },
+    { place: "Jeju", label: "APTE", detail: "Asia-Pacific Conference on Transportation and the Environment", x: 75.8, y: 38.4 },
+    { place: "Tianjin", label: "WTC", detail: "World Transport Convention", x: 72.8, y: 35.2 },
+    { place: "Beijing", label: "BWU", detail: "Beijing Wuzi University", x: 72.2, y: 33.8 },
+    { place: "Akita", label: "APU", detail: "Akita Prefectural University", x: 78.3, y: 34.4 },
+    { place: "Shanghai", label: "SAE", detail: "SAE academic exchange", x: 74.4, y: 40.2 },
+    { place: "Changsha", label: "ITSAC", detail: "China Intelligent Transportation Systems Annual Conference", x: 71.0, y: 43.3 },
+    { place: "Wuhan", label: "WTC", detail: "World Transport Convention", x: 71.3, y: 41.7 },
   ],
   education: [
     {

@@ -13,7 +13,7 @@ Most text content is stored in `site-content.mjs`. Edit that file to update:
 - publications
 - conferences and academic footprint
 - education
-- Google Scholar, ResearchGate, and LinkedIn links
+- academic profile links
 
 Images are stored in `public/`. Every push to the `main` branch automatically rebuilds and publishes the website through GitHub Pages.
 
