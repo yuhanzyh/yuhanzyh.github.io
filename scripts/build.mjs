@@ -5,6 +5,17 @@ import { siteContent } from "../site-content.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDir = path.join(projectDir, "dist");
+const cloudflareWebAnalyticsToken =
+  process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN?.trim() ?? "";
+
+if (
+  cloudflareWebAnalyticsToken &&
+  !/^[A-Za-z0-9-]{20,80}$/.test(cloudflareWebAnalyticsToken)
+) {
+  throw new Error(
+    "CLOUDFLARE_WEB_ANALYTICS_TOKEN must contain only letters, numbers, or hyphens.",
+  );
+}
 
 const escapeHtml = (value) =>
   String(value)
@@ -16,6 +27,17 @@ const escapeHtml = (value) =>
 
 const renderAuthorLine = (text) =>
   escapeHtml(text).replaceAll("Yuhan Zhang", "<strong>Yuhan Zhang</strong>");
+
+const renderAnalytics = () =>
+  cloudflareWebAnalyticsToken
+    ? `\n    <!-- Cloudflare Web Analytics -->
+    <script
+      type="module"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token":"${escapeHtml(cloudflareWebAnalyticsToken)}"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->`
+    : "";
 
 const renderPage = () => {
   const { profile } = siteContent;
@@ -211,7 +233,7 @@ const renderPage = () => {
             .join("\n")}
         </div>
       </aside>
-    </div>
+    </div>${renderAnalytics()}
   </body>
 </html>
 `;
