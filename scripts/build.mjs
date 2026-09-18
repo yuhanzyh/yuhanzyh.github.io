@@ -6,7 +6,9 @@ import { siteContent } from "../site-content.mjs";
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDir = path.join(projectDir, "dist");
 const cloudflareWebAnalyticsToken =
-  process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN?.trim() ?? "";
+    (process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN?.trim() ?? "").match(/"token"[ ]*:[ ]*"([^"]+)"/)?.[1] ??
+  process.env.CLOUDFLARE_WEB_ANALYTICS_TOKEN?.trim() ??
+  "";
 
 if (
   cloudflareWebAnalyticsToken &&
