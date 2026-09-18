@@ -27,6 +27,8 @@ jobs:
           package-manager-cache: false
       - name: Build static site
         run: npm run build
+        env:
+          CLOUDFLARE_WEB_ANALYTICS_TOKEN: ${{ secrets.CLOUDFLARE_WEB_ANALYTICS_TOKEN }}
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload GitHub Pages artifact
